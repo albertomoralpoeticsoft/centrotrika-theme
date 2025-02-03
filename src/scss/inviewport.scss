@@ -1,0 +1,80 @@
+.ct-visual {
+  
+  // &.ct-not-in-viewport { }
+
+  transition-delay: 0;
+
+  @for $i from 1 through 20 {
+    
+    &.ct-delay-#{$i} { transition-delay: #{$i}s; }
+  }
+
+  &.ct-left {    
+
+    opacity: 0;
+    transform: translateX(-10%);
+
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+    &.ct-not-in-viewport { }
+
+    &.ct-in-viewport {
+
+      opacity: 1;
+      transform:  translateX(0);
+    }
+  }
+
+  &.ct-left-zoom {    
+
+    opacity: 0;
+    transform: translateX(-10%) scale(0.9);
+
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+    &.ct-in-viewport {
+
+      opacity: 1;
+      transform:  translateX(0) scale(1);
+    }
+  }
+
+  &.ct-fade {    
+
+    opacity: 0;
+
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+    &.ct-in-viewport {
+
+      transition-delay: 0.5s;
+      opacity: 1;
+    }
+  }
+
+  &.ct-button-grow {    
+
+    width: 0;
+    overflow: hidden;
+
+    transition-property: width;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+    &.ct-in-viewport {
+
+      width: 100%;
+    }
+
+    a {
+
+      white-space: nowrap;
+    }
+  }
+}
